@@ -694,7 +694,6 @@ libutil.so.1
 locale
 localedef
 makedb
-nscd
 pcprofiledump
 pldd
 sotruss-lib.so
