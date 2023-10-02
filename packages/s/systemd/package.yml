@@ -1,6 +1,6 @@
 name       : systemd
 version    : '253.11'
-release    : 128
+release    : 129
 source     :
     - https://github.com/systemd/systemd-stable/archive/refs/tags/v253.11.tar.gz : 0b81483cf064ae4a3b02850dac9cb444e60d65582ce073f46bcd5ebcf4f2bf92
 license    :
@@ -78,6 +78,7 @@ setup      : |
                      -Dbpf-framework=false \
                      -Dbump-proc-sys-fs-nr-open=false \
                      -Dblkid=true \
+                     -Ddefault-dnssec=no \
                      -Ddefault-hierarchy="unified" \
                      -Ddefault-kill-user-processes=false \
                      -Ddefault-timeout-sec=30 \
@@ -97,6 +98,7 @@ setup      : |
                      -Dmachined=$depends_emul32 \
                      -Dmode=release \
                      -Dnetworkd=false \
+                     -Dnscd=false \
                      -Dntp-servers='0.solus.pool.ntp.org 1.solus.pool.ntp.org 2.solus.pool.ntp.org 3.solus.pool.ntp.org' \
                      -Doomd=true \
                      -Dopenssl=$depends_emul32 \
@@ -121,14 +123,6 @@ build      : |
 install    : |
     %ninja_install
 
-    # Configure solus-specific-timeout values for units
-    install -Dm00644 -t $installdir/usr/lib/systemd/system.conf.d/ $pkgfiles/configs/timeouts.conf
-    install -Dm00644 -t $installdir/usr/lib/systemd/journald.conf.d/ $pkgfiles/configs/journald.conf
-    install -Dm00644 -t $installdir/usr/lib/systemd/system/service.d/ $pkgfiles/configs/10-timeout-abort.conf
-
-    # User config defaults
-    install -Dm00644 -t $installdir/usr/lib/systemd/user.conf.d/ $pkgfiles/configs/timeouts.conf
-
     # Solus is responsible for its own glibc + PAM configuration, *not* systemd..
     rm -vrf $installdir/usr/share/factory/*
 
@@ -139,6 +133,17 @@ install    : |
     if [[ ! -z "${EMUL32BUILD}" ]]; then
         exit 0
     fi
+
+    # Configure solus-specific-timeout values for units
+    install -Dm00644 -t $installdir/usr/lib/systemd/system.conf.d/ $pkgfiles/configs/timeouts.conf
+    install -Dm00644 -t $installdir/usr/lib/systemd/journald.conf.d/ $pkgfiles/configs/journald.conf
+    install -Dm00644 -t $installdir/usr/lib/systemd/system/service.d/ $pkgfiles/configs/10-timeout-abort.conf
+
+    # User config defaults
+    install -Dm00644 -t $installdir/usr/lib/systemd/user.conf.d/ $pkgfiles/configs/timeouts.conf
+
+    # Enable systemd-resolved by default
+    ln -sv ../systemd-resolved.service $installdir/usr/lib/systemd/system/sysinit.target.wants/systemd-resolved.service
 
     # Install compat dirs
     install -D -d -m 00755 $installdir/{sbin,bin,lib/udev}
