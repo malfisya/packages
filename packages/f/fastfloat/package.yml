@@ -1,0 +1,22 @@
+name       : fastfloat
+version    : 3.9.0
+release    : 1
+source     :
+    - https://github.com/fastfloat/fast_float/archive/refs/tags/v3.9.0.tar.gz : a10443e13748291709b422b2da49fc6753a1a43bf24205d4600595dfe3d811bb
+homepage   : https://github.com/fastfloat/fast_float/
+license    :
+    - Apache-2.0
+    - BSL-1.0
+    - MIT
+component  : programming.library
+summary    : fast_float number parsing library
+description: |
+    Fast and exact implementation of the C++ from_chars functions for number types: 4x to 10x faster than strtod, part of GCC 12 and WebKit/Safari
+libsplit   : no
+setup      : |
+    %cmake_ninja
+build      : |
+    %ninja_build
+install    : |
+    %ninja_install
+patterns   : /*

@@ -1,0 +1,48 @@
+<PISI>
+    <Source>
+        <Name>fastfloat</Name>
+        <Homepage>https://github.com/fastfloat/fast_float/</Homepage>
+        <Packager>
+            <Name>Muhammad Alfi Syahrin</Name>
+            <Email>malfisya.dev@hotmail.com</Email>
+        </Packager>
+        <License>Apache-2.0</License>
+        <License>BSL-1.0</License>
+        <License>MIT</License>
+        <PartOf>programming.library</PartOf>
+        <Summary xml:lang="en">fast_float number parsing library</Summary>
+        <Description xml:lang="en">Fast and exact implementation of the C++ from_chars functions for number types: 4x to 10x faster than strtod, part of GCC 12 and WebKit/Safari
+</Description>
+        <Archive type="binary" sha1sum="79eb0752a961b8e0d15c77d298c97498fbc89c5a">https://sources.getsol.us/README.Solus</Archive>
+    </Source>
+    <Package>
+        <Name>fastfloat</Name>
+        <Summary xml:lang="en">fast_float number parsing library</Summary>
+        <Description xml:lang="en">Fast and exact implementation of the C++ from_chars functions for number types: 4x to 10x faster than strtod, part of GCC 12 and WebKit/Safari
+</Description>
+        <PartOf>programming.library</PartOf>
+        <Files>
+            <Path fileType="header">/usr/include/fast_float/ascii_number.h</Path>
+            <Path fileType="header">/usr/include/fast_float/bigint.h</Path>
+            <Path fileType="header">/usr/include/fast_float/decimal_to_binary.h</Path>
+            <Path fileType="header">/usr/include/fast_float/digit_comparison.h</Path>
+            <Path fileType="header">/usr/include/fast_float/fast_float.h</Path>
+            <Path fileType="header">/usr/include/fast_float/fast_table.h</Path>
+            <Path fileType="header">/usr/include/fast_float/float_common.h</Path>
+            <Path fileType="header">/usr/include/fast_float/parse_number.h</Path>
+            <Path fileType="header">/usr/include/fast_float/simple_decimal_conversion.h</Path>
+            <Path fileType="data">/usr/share/cmake/FastFloat/FastFloatConfig.cmake</Path>
+            <Path fileType="data">/usr/share/cmake/FastFloat/FastFloatConfigVersion.cmake</Path>
+            <Path fileType="data">/usr/share/cmake/FastFloat/fast_float-targets.cmake</Path>
+        </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2024-02-13</Date>
+            <Version>3.9.0</Version>
+            <Comment>Packaging update</Comment>
+            <Name>Muhammad Alfi Syahrin</Name>
+            <Email>malfisya.dev@hotmail.com</Email>
+        </Update>
+    </History>
+</PISI>
