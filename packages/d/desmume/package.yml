@@ -1,0 +1,33 @@
+name       : desmume
+version    : 0.9.13
+release    : 1
+source     :
+    - https://github.com/TASEmulators/desmume/releases/download/release_0_9_13/desmume-0.9.13.tar.xz : 5734450e0c25f442dd44cda6a40410fd65470f4fe2fa1eb9f0b7b6dae22dabaf
+homepage   : https://desmume.org/
+license    : GPL-2.0-or-later
+component  : games.emulator
+summary    : Nintendo DS emulator
+description: |
+    DeSmuME is the most seasoned open source Nintendo DS emulator. It sports tools designed for hackers, speedrunners, youtubers, and casual gamers. Homebrew programs are supported and can even be debugged through GDB.
+builddeps  :
+    - pkgconfig(glib-2.0)
+    - pkgconfig(glu)
+    - pkgconfig(gtk+-3.0)
+    - pkgconfig(libpcap)
+    - pkgconfig(openal)
+    - pkgconfig(sdl2)
+    - pkgconfig(soundtouch)
+setup      : |
+    pushd desmume/src/frontend/posix
+    %meson_configure \
+        -D openal=true \
+        -D wifi=true
+    popd
+build      : |
+    pushd desmume/src/frontend/posix
+    %ninja_build
+    popd
+install    : |
+    pushd desmume/src/frontend/posix
+    %ninja_install
+    popd

@@ -1,0 +1,10 @@
+desmume:main
+desmume:optarg
+desmume:opterr
+desmume:optind
+desmume:optopt
+desmume-cli:main
+desmume-cli:optarg
+desmume-cli:opterr
+desmume-cli:optind
+desmume-cli:optopt
