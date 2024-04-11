@@ -2511,5 +2511,8 @@
 		<Package>replaysorcery</Package>
 		<Package>replaysorcery-dbginfo</Package>
 		<Package>a52dec-devel</Package>
+		<Package>haskell-data-array-byte</Package>
+		<Package>haskell-data-array-byte-devel</Package>
+		<Package>haskell-data-array-byte-dbginfo</Package>
 	</Obsoletes>
 </PISI>
