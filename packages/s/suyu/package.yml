@@ -1,0 +1,42 @@
+name       : suyu
+version    : 0.0.1
+release    : 1
+source     :
+    - git|https://git.suyu.dev/suyu/suyu.git : v0.0.1
+homepage   : https://suyu.dev
+license    : GPL-3.0-or-later
+component  : games.emulator
+summary    : A fully open-source Nintendo Switch emulator
+description: |
+    A fully open-source Nintendo Switch emulator
+builddeps  :
+    - pkgconfig(Qt5Multimedia)
+    - pkgconfig(fmt)
+    - pkgconfig(gamemode)
+    - pkgconfig(glu)
+    - pkgconfig(libavcodec)
+    - pkgconfig(libenet)
+    - pkgconfig(liblz4)
+    - pkgconfig(libusb-1.0)
+    - pkgconfig(libva)
+    - pkgconfig(libzstd)
+    - pkgconfig(opus)
+    - pkgconfig(sdl2)
+    - pkgconfig(x11)
+    - cubeb-devel
+    - glslang-devel
+    - libboost-devel
+    - nlohmann-json
+setup      : |
+    %cmake_ninja \
+        -DBUILD_TAG=$version \
+        -DSUYU_DOWNLOAD_ANDROID_VVL=OFF \
+        -DSUYU_TESTS=OFF \
+        -DSUYU_USE_BUNDLED_SDL2=OFF \
+        -DSUYU_USE_EXTERNAL_SDL2=OFF \
+        -DTITLE_BAR_FORMAT_IDLE="suyu | $version {}" \
+        -DTITLE_BAR_FORMAT_RUNNING="suyu | $version | {}"
+build      : |
+    %ninja_build
+install    : |
+    %ninja_install
