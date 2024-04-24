@@ -1,0 +1,19 @@
+name       : nautilus-admin-gtk4
+version    : 1.1.9
+release    : 1
+source     :
+    - git|https://github.com/malfisya/nautilus-admin-gtk4 : 171ababe7e49dafe25a93c7dd7d4ab4ac58cf608
+homepage   : https://github.com/malfisya/nautilus-admin-gtk4
+license    : GPL-3.0-or-later
+component  : desktop.gnome
+summary    : Extension for Nautilus to do administrative operations
+description: |
+    Extension for Nautilus to do administrative operations
+builddeps  :
+    - pkgconfig(libnautilus-extension-4)
+setup      : |
+    %cmake_ninja
+build      : |
+    %ninja_build
+install    : |
+    %ninja_install

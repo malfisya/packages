@@ -1,0 +1,49 @@
+<PISI>
+    <Source>
+        <Name>nautilus-admin-gtk4</Name>
+        <Homepage>https://github.com/malfisya/nautilus-admin-gtk4</Homepage>
+        <Packager>
+            <Name>Muhammad Alfi Syahrin</Name>
+            <Email>malfisya.dev@hotmail.com</Email>
+        </Packager>
+        <License>GPL-3.0-or-later</License>
+        <PartOf>desktop.gnome</PartOf>
+        <Summary xml:lang="en">Extension for Nautilus to do administrative operations</Summary>
+        <Description xml:lang="en">Extension for Nautilus to do administrative operations
+</Description>
+        <Archive type="binary" sha1sum="79eb0752a961b8e0d15c77d298c97498fbc89c5a">https://sources.getsol.us/README.Solus</Archive>
+    </Source>
+    <Package>
+        <Name>nautilus-admin-gtk4</Name>
+        <Summary xml:lang="en">Extension for Nautilus to do administrative operations</Summary>
+        <Description xml:lang="en">Extension for Nautilus to do administrative operations
+</Description>
+        <PartOf>desktop.gnome</PartOf>
+        <Files>
+            <Path fileType="localedata">/usr/share/locale/ar/LC_MESSAGES/nautilus-admin.mo</Path>
+            <Path fileType="localedata">/usr/share/locale/be/LC_MESSAGES/nautilus-admin.mo</Path>
+            <Path fileType="localedata">/usr/share/locale/cs/LC_MESSAGES/nautilus-admin.mo</Path>
+            <Path fileType="localedata">/usr/share/locale/de/LC_MESSAGES/nautilus-admin.mo</Path>
+            <Path fileType="localedata">/usr/share/locale/es/LC_MESSAGES/nautilus-admin.mo</Path>
+            <Path fileType="localedata">/usr/share/locale/fr/LC_MESSAGES/nautilus-admin.mo</Path>
+            <Path fileType="localedata">/usr/share/locale/it/LC_MESSAGES/nautilus-admin.mo</Path>
+            <Path fileType="localedata">/usr/share/locale/lt/LC_MESSAGES/nautilus-admin.mo</Path>
+            <Path fileType="localedata">/usr/share/locale/pl/LC_MESSAGES/nautilus-admin.mo</Path>
+            <Path fileType="localedata">/usr/share/locale/pt/LC_MESSAGES/nautilus-admin.mo</Path>
+            <Path fileType="localedata">/usr/share/locale/ru/LC_MESSAGES/nautilus-admin.mo</Path>
+            <Path fileType="localedata">/usr/share/locale/sk/LC_MESSAGES/nautilus-admin.mo</Path>
+            <Path fileType="localedata">/usr/share/locale/tr/LC_MESSAGES/nautilus-admin.mo</Path>
+            <Path fileType="localedata">/usr/share/locale/zh_CN/LC_MESSAGES/nautilus-admin.mo</Path>
+            <Path fileType="data">/usr/share/nautilus-python/extensions/nautilus-admin.py</Path>
+        </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2024-04-24</Date>
+            <Version>1.1.9</Version>
+            <Comment>Packaging update</Comment>
+            <Name>Muhammad Alfi Syahrin</Name>
+            <Email>malfisya.dev@hotmail.com</Email>
+        </Update>
+    </History>
+</PISI>
